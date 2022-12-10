@@ -9,12 +9,10 @@ let arr = [
 let body = document.querySelector("body");
 let text = document.querySelector(".text");
 let button = document.querySelector("button");
-let i = 0;
 
 button.addEventListener("click", function () {
-    i = 1 + Math.random() * (6 + 1 - 1);
-
+    let i = 1 + Math.random() * (6 + 1 - 1);
     body.style.backgroundColor = arr[Math.floor(i) - 1];
     text.textContent = arr[Math.floor(i) - 1];
-    console.log(i);
+    text.style.color = arr[Math.floor(i) - 1];
 });
