@@ -77,8 +77,11 @@ button {
     justify-content: space-between;
     border-bottom: dashed 2px #000;
 }
-.menu__item-header > p,
-h4 {
+.menu__item-header > p {
+    margin-bottom: 0;
+    color: rgb(184, 80, 39);
+}
+.menu__item-header > h4 {
     margin-bottom: 0;
 }
 
@@ -111,7 +114,11 @@ h4 {
     .wrapper {
         max-width: 1000px;
     }
+    .menu {
+        min-width: 100%;
+    }
     .menu__container {
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
