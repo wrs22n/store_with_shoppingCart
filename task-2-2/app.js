@@ -8,9 +8,9 @@ const buttons = document.querySelector("button");
 
 const menuItems = document.querySelectorAll(".menu__item");
 
-function Menu(item) {
+function renderMenu(mealType) {
     menuItems.forEach((element) => {
-        if (element.classList.contains(`${item}`)) {
+        if (mealType === element.dataset.meal || mealType === "all") {
             element.style.display = "flex";
         } else {
             element.style.display = "none";
@@ -19,17 +19,17 @@ function Menu(item) {
 }
 
 breakfast.addEventListener("click", () => {
-    Menu("breakfast");
+    renderMenu("breakfast");
 });
 lunch.addEventListener("click", () => {
-    Menu("lunch");
+    renderMenu("lunch");
 });
 dinner.addEventListener("click", () => {
-    Menu("dinner");
+    renderMenu("dinner");
 });
 shakes.addEventListener("click", () => {
-    Menu("shakes");
+    renderMenu("shakes");
 });
 all.addEventListener("click", () => {
-    Menu("menu__item");
+    renderMenu("all");
 });
