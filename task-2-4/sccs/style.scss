@@ -1,0 +1,164 @@
+$border-main: rgb(173, 173, 173);
+$background: rgb(216, 216, 216);
+$background-button: rgb(9, 218, 165);
+$checkbox: rgb(102, 102, 102);
+
+input {
+    height: 25px;
+    border: none;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 3px;
+    outline: none;
+    &::placeholder {
+        padding: 5px;
+    }
+    &:focus {
+        border: 1px solid rgb(173, 173, 173);
+    }
+}
+
+.error {
+    line-height: 25px;
+}
+
+.main {
+    font-family: "Montserrat", sans-serif;
+    margin: 10px auto;
+    max-width: 300px;
+    background-color: #fff;
+    border: 1px solid $border-main;
+    border-radius: 5px;
+    &__header {
+        text-align: center;
+        background-color: $background;
+        padding: 20px 0;
+        border-radius: 5px 5px 0 0;
+        border-bottom: 2px solid $border-main;
+
+        h1 {
+            font-weight: 600;
+            font-size: 18px;
+            color: $checkbox;
+        }
+    }
+}
+
+.main__form {
+    font-weight: 400;
+    &-info {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    &__button {
+        display: flex;
+        background-color: $background;
+        justify-content: end;
+        margin-top: 10px;
+        border-top: 2px solid $border-main;
+        border-radius: 0 0 5px 5px;
+        & > input {
+            font-family: "Montserrat", sans-serif;
+            width: 70px;
+            background-color: $background-button;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px 20px 5px 25px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+    }
+}
+
+.main__form-info {
+    & > div {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+    }
+    &__radio > div {
+        display: flex;
+        flex-direction: row;
+    }
+    &__radio > div > div {
+        padding-right: 10px;
+        display: flex;
+        align-items: center;
+    }
+    &__radio > div > div > label {
+        color: $checkbox;
+        margin-left: 3px;
+        font-weight: 200;
+        font-size: 14px;
+    }
+    &__checkbox > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__checkbox > div > div {
+        display: flex;
+        align-items: center;
+    }
+    &__checkbox > div > div > label {
+        color: $checkbox;
+        margin-left: 3px;
+        font-weight: 200;
+        font-size: 14px;
+    }
+    &__status > select {
+        height: 30px;
+    }
+    &__range > div {
+        display: flex;
+        flex-direction: row;
+    }
+    &__range > div > span {
+        border: none;
+        padding: 1px;
+        border-radius: 5px;
+        background-color: $background-button;
+        padding: 2px;
+        color: #fff;
+    }
+    &__img > input {
+        border: none;
+    }
+    &__bio > textarea {
+        resize: vertical;
+    }
+}
+
+@media (min-width: 680px) {
+    .main {
+        max-width: 600px;
+    }
+    .main__form-info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        & > div:not(:nth-child(9n + 3)) {
+            min-width: 49%;
+        }
+
+        &__email {
+            min-width: 100%;
+        }
+
+        &__bio {
+            min-width: 100%;
+        }
+    }
+}
+
+div[data-true] {
+    display: none;
+}
+
+div[data-wrong] {
+    color: rgb(255, 0, 0);
+    display: block;
+}
