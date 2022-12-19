@@ -28,20 +28,16 @@ class Validator {
         error.setAttribute("data-wrong", "");
     }
 
-    changeEmailError(str) {
-        let formInfo = str.parentElement;
-        const error = formInfo.querySelector("div");
-        error.removeAttribute("data-true");
-        error.setAttribute("data-wrong", "");
-        error.innerHTML = "Wrong Email";
-    }
-
     isEmail(email) {
         let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let formInfo = email.parentElement;
+        const error = formInfo.querySelector("div");
         if (email.value.trim() === "") {
+            error.innerHTML = "This field is required";
             this.changeFalseValue(email);
         } else if (!email.value.match(emailRegex)) {
-            this.changeEmailError(email);
+            error.innerHTML = "Wrong Email";
+            this.changeFalseValue(email);
         } else {
             this.changeTrueValue(email);
         }
