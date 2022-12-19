@@ -3,15 +3,15 @@ const email = document.getElementById("email");
 const firstname = document.getElementById("firstname");
 const lastname = document.getElementById("lastname");
 const password = document.getElementById("pass");
-const confpassword = document.getElementById("confpass");
+const passwordConfirm = document.getElementById("confpass");
 
 class Validator {
-    constructor(firstname, lastname, email, password, confpassword) {
+    constructor(firstname, lastname, email, password, passwordConfirm) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.confpassword = confpassword;
+        this.passwordConfirm = passwordConfirm;
     }
 
     changeTrueValue(str) {
@@ -28,10 +28,20 @@ class Validator {
         error.setAttribute("data-wrong", "");
     }
 
+    changeEmailError(str) {
+        let formInfo = str.parentElement;
+        const error = formInfo.querySelector("div");
+        error.removeAttribute("data-true");
+        error.setAttribute("data-wrong", "");
+        error.innerHTML = "Wrong Email";
+    }
+
     isEmail(email) {
-        let maliformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (!email.value.match(maliformat)) {
+        let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.value.trim() === "") {
             this.changeFalseValue(email);
+        } else if (!email.value.match(emailRegex)) {
+            this.changeEmailError(email);
         } else {
             this.changeTrueValue(email);
         }
@@ -64,5 +74,5 @@ form.addEventListener("submit", function (e) {
     formValid.isRequired(firstname);
     formValid.isRequired(lastname);
     formValid.isRequired(password);
-    formValid.isPass(confpassword);
+    formValid.isPass(passwordConfirm);
 });
