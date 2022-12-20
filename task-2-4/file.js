@@ -6,29 +6,21 @@ const password = document.getElementById("pass");
 const passwordConfirm = document.getElementById("confpass");
 
 class Validator {
-    constructor(firstname, lastname, email, password, passwordConfirm) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-        this.passwordConfirm = passwordConfirm;
-    }
-
-    changeTrueValue(str) {
+    static changeTrueValue(str) {
         let formInfo = str.parentElement;
         const error = formInfo.querySelector("div");
         error.removeAttribute("data-wrong");
         error.setAttribute("data-true", "");
     }
 
-    changeFalseValue(str) {
+    static changeFalseValue(str) {
         let formInfo = str.parentElement;
         const error = formInfo.querySelector("div");
         error.removeAttribute("data-true");
         error.setAttribute("data-wrong", "");
     }
 
-    isEmail(email) {
+    static isEmail(email) {
         let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         let formInfo = email.parentElement;
         const error = formInfo.querySelector("div");
@@ -43,7 +35,7 @@ class Validator {
         }
     }
 
-    isRequired(string) {
+    static isRequired(string) {
         if (
             string.value.trim() === "" ||
             string.value.split("").includes(" ")
@@ -54,7 +46,7 @@ class Validator {
         }
     }
 
-    isPass(str) {
+    static isPass(str) {
         if (str.value !== password.value) {
             this.changeFalseValue(str);
         } else {
@@ -65,10 +57,9 @@ class Validator {
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const formValid = new Validator();
-    formValid.isEmail(email);
-    formValid.isRequired(firstname);
-    formValid.isRequired(lastname);
-    formValid.isRequired(password);
-    formValid.isPass(passwordConfirm);
+    Validator.isEmail(email);
+    Validator.isRequired(firstname);
+    Validator.isRequired(lastname);
+    Validator.isRequired(password);
+    Validator.isPass(passwordConfirm);
 });
