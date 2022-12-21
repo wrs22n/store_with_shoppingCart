@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script defer src="./file.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <header class="main__header">
+                    <h1>Create Account</h1>
+                </header>
+                <form id="form" action="/" class="main__form">
+                    <div class="main__form-info">
+                        <div class="main__form-info__firstname">
+                            <label for="firstname">First name*</label>
+                            <input
+                                placeholder="enter your first name"
+                                id="firstname"
+                                name="firstname"
+                                type="text"
+                            />
+                            <div data-true class="error">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="main__form-info__lastname">
+                            <label for="lastname">Last name</label>
+                            <input
+                                placeholder="enter your last name"
+                                id="lastname"
+                                name="lastname"
+                                type="text"
+                            />
+                            <div data-true class="error">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="main__form-info__email">
+                            <label for="lastname">Email*</label>
+                            <input
+                                placeholder="enter your email"
+                                id="email"
+                                type="email"
+                            />
+                            <div data-true class="error">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="main__form-info__pass">
+                            <label for="pass">Password*</label>
+                            <input name="password" id="pass" type="password" />
+                            <div data-true class="error">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="main__form-info__confpass">
+                            <label for="pass">Confirm Password*</label>
+                            <input
+                                name="confirmpassword"
+                                id="confpass"
+                                type="password"
+                            />
+                            <div data-true class="error">
+                                Passwords do not match
+                            </div>
+                        </div>
+                        <div class="main__form-info__radio">
+                            <p>Gender:</p>
+                            <div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        id="male"
+                                        value="male"
+                                    />
+                                    <label for="male">Male</label>
+                                </div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        id="female"
+                                        value="female"
+                                    />
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__form-info__checkbox">
+                            <p>Hobbies</p>
+                            <div>
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        id="music"
+                                        name="music"
+                                    />
+                                    <label for="music">Music</label>
+                                </div>
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        id="sports"
+                                        name="sports"
+                                    />
+                                    <label for="sports">Sports</label>
+                                </div>
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        id="travel"
+                                        name="travel"
+                                    />
+                                    <label for="travel">Travel</label>
+                                </div>
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        id="movies"
+                                        name="movies"
+                                    />
+                                    <label for="movies">Movies</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__form-info__status">
+                            <p>Source of income</p>
+                            <select name="status">
+                                <option value="employed">Employed</option>
+                            </select>
+                        </div>
+                        <div class="main__form-info__range">
+                            <p>Income</p>
+                            <div>
+                                <input type="range" min="0" max="1100000" />
+                                <span>20k</span>
+                            </div>
+                        </div>
+                        <div class="main__form-info__img">
+                            <label for="avatar">Upload Profile Picture</label>
+                            <input type="file" id="avatar" name="avatar" />
+                        </div>
+                        <div class="main__form-info__age">
+                            <label for="age">Age</label>
+                            <input data-true type="number" id="age" />
+                        </div>
+                        <div class="main__form-info__bio">
+                            <p>Bio</p>
+                            <textarea name="bio" id="bio"></textarea>
+                        </div>
+                    </div>
+                    <div class="main__form__button">
+                        <input type="submit" value="Create" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
