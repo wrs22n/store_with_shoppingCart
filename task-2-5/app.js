@@ -48,8 +48,7 @@ function cityNextWeather(city) {
     fetch(nextWeatherUrl)
         .then((resp) => resp.json())
         .then((data) => {
-            console.log(data);
-            for (let j = 0; j < 4; j++) {
+            for (let j = 0; j < 4; j++) { //**** */
                 const date = new Date(data.list[0]["dt_txt"]); // today's date
                 let nextDay = new Date(date.setDate(date.getDate() + j + 1)); // creating 4 dates in order after today's date
                 let tempMin = Infinity;
