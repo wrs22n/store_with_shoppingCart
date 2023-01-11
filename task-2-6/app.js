@@ -20,7 +20,7 @@ addItemBtn.addEventListener("click", (e) => {
     todo.push(newTodo)
     addItemText.value = '';
 
-    document.cookie =`todo=${JSON.stringify(todo)}; expires=Wed, 11 Jan 2023 12:00:00 UTC`;
+    document.cookie =`todo=${JSON.stringify(todo)}; expires=Wed, 15 Jan 2023 12:00:00 UTC`;
 
     
 })
@@ -91,10 +91,8 @@ function editElement(btn,input) {
                     }
                 }
             }
-            console.log(arr);
-            document.cookie =`todo=${JSON.stringify(arr)}; expires=Wed, 11 Jan 2023 12:00:00 UTC`;
+            document.cookie =`todo=${JSON.stringify(arr)}; expires=Wed, 15 Jan 2023 12:00:00 UTC`;
         }   
-        
     })
 }
 
@@ -111,7 +109,7 @@ function deleteElement(btn,li,input) {
                 }
             }
         };
-        document.cookie =`todo=${JSON.stringify(newArr)}; expires=Wed, 11 Jan 2023 12:00:00 UTC`;
+        document.cookie =`todo=${JSON.stringify(newArr)}; expires=Wed, 15 Jan 2023 12:00:00 UTC`;
     })
 }
 
