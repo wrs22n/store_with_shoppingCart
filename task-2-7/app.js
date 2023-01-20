@@ -5,18 +5,7 @@ const continents = document.querySelector(".search__continents");
 const countryInput = document.querySelector(".search__country");
 
 /* create div */
-function createCountriesElements(url) {
-    fetch(url)
-    .then((resp)=>resp.json())
-    .then((data) => {
-        console.log(data);  
-        for (let i = 0; i < data.length; i++) {
-            if ((data[i]['name']['common']).toLowerCase() === (countryInput.value).toLowerCase()) {
-                const element = data[i];
-                data[i] = data[0];
-                data[0] = element;
-            }
-        }
+function createCountriesElements(data) {
         let createCountry = '';
         for (let i = 0; i < data.length; i++) {
             createCountry += `
@@ -44,7 +33,6 @@ function createCountriesElements(url) {
             countryRegion[i].textContent = `Region: ${data[i]['region']}`;
             countryCapital[i].textContent =  `Capital: ${data[i]['capital']}`;
         }
-    });
 }
 
 /*  dark mode */ 
@@ -72,7 +60,12 @@ addRemoveDarkMode()
 
 function createAllCountries() {
     let url = 'https://restcountries.com/v3.1/all';
-    createCountriesElements(url);
+    fetch(url)
+    .then((resp)=>resp.json())
+    .then((data) => { 
+        createCountriesElements(data);
+    });
+    
 }
 
 createAllCountries()
@@ -85,7 +78,11 @@ continents.addEventListener('change',(e) => {
 
 function region(region) {
     let url = `https://restcountries.com/v3.1/region/${region}`;
-    createCountriesElements(url);
+    fetch(url)
+    .then((resp)=>resp.json())
+    .then((data) => { 
+        createCountriesElements(data);
+    });
 }
 
 /* country selection */
@@ -93,6 +90,17 @@ function region(region) {
 countryInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         let url = 'https://restcountries.com/v3.1/all';
-        createCountriesElements(url);
+        fetch(url)
+        .then((resp)=>resp.json())
+        .then((data) => { 
+            for (let i = 0; i < data.length; i++) {
+                if ((data[i]['name']['common']).toLowerCase() === (countryInput.value).toLowerCase()) {
+                    const element = data[i];
+                    data[i] = data[0];
+                    data[0] = element;
+                }
+            }
+            createCountriesElements(data);
+        });
     }
 })
