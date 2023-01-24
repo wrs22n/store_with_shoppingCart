@@ -87,20 +87,17 @@ function region(region) {
 
 /* country selection */
 
-countryInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        let url = 'https://restcountries.com/v3.1/all';
-        fetch(url)
+function countrySelection(name) {
+    let url = `https://restcountries.com/v3.1/name/${name}`;
+    fetch(url)
         .then((resp)=>resp.json())
         .then((data) => { 
-            for (let i = 0; i < data.length; i++) {
-                if ((data[i]['name']['common']).toLowerCase() === (countryInput.value).toLowerCase()) {
-                    const element = data[i];
-                    data[i] = data[0];
-                    data[0] = element;
-                }
-            }
-            createCountriesElements(data);
+            createCountriesElements(data)
         });
+    }
+
+countryInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        countrySelection(countryInput.value);
     }
 })
