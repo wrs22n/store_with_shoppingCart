@@ -1,7 +1,5 @@
 /*  Creation of each product  */ 
-
 const collection = document.querySelector('.collection'); 
-
 function createItem(item) {
     const div = document.createElement('div');
     div.classList.add('collection__item');
@@ -33,7 +31,6 @@ itemList.forEach(item => {
 });
 
 /** Sort by range value and company name*/
-
 function fun1() {
     let rng = document.getElementById('price-range'); 
     let span = document.getElementById('price-value'); 
@@ -57,14 +54,8 @@ function renderCompany(companyName) {
         }
     });
 }
-/*
-function sortItemsByPrice(arr, rangeValue) {
-    const sortedArr = arr.filter(item => item.price.slice(1) <= rangeValue);
-    return sortedArr;
-}*/
  
 const priceRange = document.getElementById('price-range');
-
 function priceRangeFilter() {
     priceRange.addEventListener('input', function() {
         let minPrice = parseInt(this.value);
@@ -72,7 +63,6 @@ function priceRangeFilter() {
         console.log(minPrice);
         for (let i = 0; i < products.length; i++) {
             let price = parseInt(products[i].getAttribute('data-price'));
-            
             if (price >= minPrice) {
             products[i].style.display = 'block';
             } else {
@@ -98,25 +88,21 @@ liddy.addEventListener("click", () => {
 all.addEventListener("click", () => {
     renderCompany("all");
 });
-
 /** Filter by search input */
-  
 let filterSearch = document.querySelector(".filter__search");
-
 filterSearch.addEventListener("input", (event) => {
     const searchQuery = event.target.value.toLowerCase(); 
     filterItemsByName(searchQuery);
 })
-
 function filterItemsByName(searchQuery) {
     const items = document.getElementsByClassName('collection__item'); 
     for (const item of items) {
-      const itemName = item.querySelector('.collection__text').textContent.toLowerCase(); 
-      if (itemName.includes(searchQuery)) {
+        const itemName = item.querySelector('.collection__text').textContent.toLowerCase(); 
+        if (itemName.includes(searchQuery)) {
         item.style.display = 'flex';
-      } else {
+        } else {
         item.style.display = 'none'; 
-      }
+        }
     }
-  }
+}
  
