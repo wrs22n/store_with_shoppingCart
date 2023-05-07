@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="./file.js" defer></script>
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <div class="content">
+        <div class="wrapper">
+            <div class="home__main">
+                <header class="home__header header">
+                    <nav class="header__nav">
+                        <a class="header__link" href="">Home</a>
+                        <a class="header__link" href="/products.html">Products</a>
+                        <a class="header__link" href="/about.html">About</a>
+                    </nav>
+                    <h2 class="header__title">comfy</h2>
+                    <button class="header__button">
+                        <img class="header__img" src="./img/icons8-shopping-cart-64.png" alt="">
+                    </button>
+                </header>
+                <div class="home__title title">
+                    <h1 class="title__caption">Rest, Relax, Unwind</h1>
+                    <p class="title__text">Embrace your choices - we do</p>
+                    <button class="title__button"><a href="/products.html">SHOW NOW</a></button>
+                </div>     
+            </div>
+        </div>
+        <div class="container">
+            <div class="home__collection collection">
+                <h3 class="collection__title"><span>/</span> Featured</h3>
+                <div class="collection__products">
+                    <div class="collection__product">
+                        <img class="product__img" src="./img/1.jpg" alt="">
+                        <p class="product__name">High-Back Bench</p>
+                        <p class="product__text">$9.99</p>
+                    </div>
+                    <div class="collection__product">
+                        <img class="product__img" src="./img/2.jpg" alt="">
+                        <p class="product__name">Utopia Sofa</p>
+                        <p class="product__text">$9.99</p>
+                    </div>
+                    <div class="collection__product">
+                        <img class="product__img" src="./img/3.jpg" alt="">
+                        <p class="product__name">Entertainment Center</p>
+                        <p class="product__text">$9.99</p>
+                    </div>
+                </div>
+                <button class="collection__button"><a href="/products.html">ALL PRODUCTS</a></button>
+            </div>
+        </div>
+    </div>
+    <aside class="shoppingCart">
+        <button class="shoppingCart__close"><img src="./img/icons8-close-30.png" alt=""></button>
+        <h1 class="shoppingCart__title">Your Bag</h1>
+        <div class="scrollable">
+            <div class="shoppingCart__main">
+            </div>   
+        </div>
+        <div class="shoppingCart__result">
+            <p class="shoppingCart__summary">Total:<span class="shoppingCart__total-sum">$0</span></p>
+            <button class="shoppingCart__checkout">CHECKOUT</button>
+        </div>  
+    </aside>
+</body>
+</html>
