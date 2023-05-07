@@ -65,7 +65,7 @@ window.addEventListener('load', function() {
         let shoppingCartMain = document.querySelector(".shoppingCart__main");
         shoppingCartMain.appendChild(shoppingCartItem);
 
-        arrayShoppingCart.push(item.name);
+        return item.name;
     })
     let dataSum = JSON.parse(localStorage.getItem('Checkout'));
     if (dataSum) {
